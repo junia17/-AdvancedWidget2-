@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import butterknife.BindColor;
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.editTextNama)
@@ -20,6 +22,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
+        tvHasil.setTextColor(colorAccent);
     }
+
+    @OnClick(R.id.buttonProses)
+    public void doProsess() {
+        tvHasil.setText("Nama Anda: " + etNama.getText());
+    }
+
 }
